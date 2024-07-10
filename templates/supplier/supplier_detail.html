@@ -1,0 +1,34 @@
+{% extends "_base.html" %}
+
+
+{% block title %}{{supplier.first_name.title}}|Supplier{% endblock title %}
+{% block content %}
+
+
+<h1>{{supplier.first_name.title}} {{supplier.last_name.upper}}</h1>
+{% if supplier.email %}
+<h1>Email: {{supplier.email}}</h1>
+{% endif %}
+<h1>Dette: {{supplier.credit}}Fcfa</h1>
+<h1>Remboursé: {{supplier.paid_off}}Fcfa</h1>
+<h1>Téléphone: {{supplier.phone_number}}</h1>
+<h1>Genre: {{supplier.get_gender}}</h1>
+
+<p>
+    -----------------------------------------------------
+</p>
+<p>
+    Etat du compte: {{supplier.get_the_rest_of_credit}}.
+</p>
+<p>
+    -----------------------------------------------------
+</p>
+
+<div>
+    <a href="{% url "supplier_delete" supplier.pk %}">Suprimer</a>|<a href="{% url "supplier_update" supplier.pk %}">Modifier</a>
+</div>
+
+
+
+
+{% endblock content %}

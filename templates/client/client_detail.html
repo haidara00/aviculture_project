@@ -1,0 +1,34 @@
+{% extends "_base.html" %}
+
+
+{% block title %}{{client.first_name.title}}|Client{% endblock title %}
+{% block content %}
+
+
+<h1>{{client.first_name}} {{client.last_name}}</h1>
+{% if client.email %}
+<h1>Email: {{client.email}}</h1>
+{% endif %}
+<h1>Dette: {{client.debt}}Fcfa</h1>
+<h1>Remboursé: {{client.reinburse}}Fcfa</h1>
+<h1>Téléphone: {{client.phone_number}}</h1>
+<h1>Genre: {{client.get_gender}}</h1>
+
+<p>
+    -----------------------------------------------------
+</p>
+<p>
+    Le rest de la dette est: {{client.get_the_rest_of_debt}}Fcfa
+</p>
+<p>
+    -----------------------------------------------------
+</p>
+
+<div>
+    <a href="{% url "client_delete" client.pk %}">Suprimer</a>|<a href="{% url "client_update" client.pk %}">Modifier</a>
+</div>
+
+
+
+
+{% endblock content %}

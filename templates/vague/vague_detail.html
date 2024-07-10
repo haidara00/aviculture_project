@@ -1,0 +1,31 @@
+{% extends "_base.html" %}
+
+
+{% block title %}Detail Vague{% endblock title %}
+{% block content %}
+
+
+<h1>{{vague.start_date}}</h1>
+<h1>Le nombre des poussins au depart : {{vague.quantity_at_the_start}}</h1>
+<h1>Le nombre de(s) poussin(s) mort(s) : {{vague.died}}</h1>
+<h1>Le jour de l'enregistrement : {{vague.created_at}}</h1>
+<h1>Le jour de la dernière modification : {{vague.updated_at}}</h1>
+
+<p>
+    -----------------------------------------------------
+</p>
+<p>
+    Le rest des poussins : {{vague.get_the_rest}}
+</p>
+<p>
+    -----------------------------------------------------
+</p>
+
+<div>
+    <a href="{% url "vague_delete" vague.pk %}">Suprimer</a>|<a href="{% url "vague_update" vague.pk %}">Modifier</a>
+</div>
+
+
+
+
+{% endblock content %}

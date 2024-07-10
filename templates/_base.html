@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title%} {% endblock title %}</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+            <li><a href="{% url "vague_list" %}">toutes les vagues</a></li>
+            <li><a href="{% url "client_list" %}">tous les client</a></li>
+            <li><a href="{% url "supplier_list" %}">tous les fournisseur</a></li>
+            </ul>
+        </nav>
+    </header>
+    {% block content %}
+    
+    
+    {% endblock content %}
+    
+
+</body>
+</html>

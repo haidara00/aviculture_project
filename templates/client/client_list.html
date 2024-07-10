@@ -1,0 +1,24 @@
+{% extends "_base.html" %}
+
+{% block title %}Liste des Clients{% endblock title %}
+{% block content %}
+
+{% for client in object_list %}
+<h1><a href="{{client.get_absolute_url}}">{{client.first_name}} {{client.last_name}}</a></h1>
+<p>
+   dette: {{client.debt}}Fcfa<br>
+
+   payer: {{client.reinburse}}Fcfa
+
+   <br>
+   le rest : {{client.get_the_rest_of_debt}}Fcfa
+</p>
+
+
+{% endfor %}
+<br>
+<br>
+<div>
+    <a href="{% url "client_create" %}">Ajouter un nouveau client</a>
+</div>
+{% endblock content %}

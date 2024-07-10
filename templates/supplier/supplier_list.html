@@ -1,0 +1,24 @@
+{% extends "_base.html" %}
+
+{% block title %}Liste des Fournisseur{% endblock title %}
+{% block content %}
+
+{% for supplier in object_list %}
+<h1><a href="{{supplier.get_absolute_url}}">{{supplier.first_name}} {{supplier.last_name}}</a></h1>
+<p>
+   dette: {{supplier.credit}}Fcfa<br>
+
+   payer: {{supplier.paid_off}}Fcfa
+
+   <br>
+   Etat du compte : {{supplier.get_the_rest_of_credit}}Fcfa
+</p>
+
+
+{% endfor %}
+<br>
+<br>
+<div>
+    <a href="{% url "supplier_create" %}">Ajouter un nouveau supplier</a>
+</div>
+{% endblock content %}
